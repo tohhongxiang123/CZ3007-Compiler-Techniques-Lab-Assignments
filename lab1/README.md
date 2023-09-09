@@ -4,27 +4,27 @@
 
 After following build instructions in the pdf, we need to build `lexer.flex`
 
-To build `lexer.flex` into a java class, click on `./Lab1/build.xml`
+To build `lexer.flex` into a java class, click on `../Lab1/build.xml`
 
-![](../screenshots/select_build.png)
+![](./screenshots/select_build.png)
 
 Then, click on the downward black triangle on the "External Tools" button
 
-![](../screenshots/click_button_to_build.png)
+![](./screenshots/click_button_to_build.png)
 
 If this is your first time running this project, you will not see `1 build.xml` in the menu. Hover over "Run as", and select "1 Ant Build"
 
-![](../screenshots/run_ant_build.png)
+![](./screenshots/run_ant_build.png)
 
 Now, you will see in the console on the bottom of the screen that `Lexer.java` was successfully built
 
-![](../screenshots/successful_build.png)
+![](./screenshots/successful_build.png)
 
-Now double click `./Lab1/src/tests/LexerTests.java` to open it in the editor. In the editor, right click on any empty space, click "Run As", and then click "1 JUnit Test"
+Now double click `../Lab1/src/tests/LexerTests.java` to open it in the editor. In the editor, right click on any empty space, click "Run As", and then click "1 JUnit Test"
 
 Before filling in `lexer.flex` with the appropriate code, all the tests will fail
 
-![](../screenshots/tests_failed.png)
+![](./screenshots/tests_failed.png)
 
 # Filling in `lexer.flex`
 
@@ -71,4 +71,4 @@ Create a method for every single possible token, then rebuild `lexer.flex`, and 
 
 After filling in `lexer.flex` with the appropriate code, and building, the tests will be green.
 
-![](../screenshots/successful_tests.png)
+![](./screenshots/successful_tests.png)
