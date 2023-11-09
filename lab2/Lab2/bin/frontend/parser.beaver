@@ -1,3 +1,7 @@
+// TOH HONG XIANG	7	TOHH0023
+// WENG MICHELLE	7	N2303578B
+// WILLIS YANG XIANZU	7	WILL0049
+
 // package the generated Java class lives in; no need to change this
 %package "parser";
 
@@ -77,6 +81,7 @@ AccessibilitySpecifier = PUBLIC
                        ;
 
 /* A type name is either a primitive type, an array type, or an identifier. */
+/* Define ArrayType separately to prevent reduce-reduce conflict */
 TypeName = PrimitiveType
          |  ArrayType
          |  ID
@@ -89,11 +94,12 @@ PrimitiveType = VOID
               ;
               
 /* An array type is a type name, followed by a left bracket, followed by a right bracket.  */
-/* We separate into ArrayType, PrimitiveType and ID to remove LALR conflicts */
+/* We separate into ArrayType, PrimitiveType and ID to remove shift-reduce conflicts */
 ArrayType = ArrayType LBRACKET RBRACKET
           | PrimitiveType LBRACKET RBRACKET
           | ID LBRACKET RBRACKET
-          ;
+          ; 
+          
 
 /* A parameter list is a possibly empty list of parameters separated by commas. A parameter is a type name
 followed by an identifier. */
@@ -133,7 +139,6 @@ StatementList = Statement StatementList
 /* an if statement, which consists of an if keyword, an opening parenthesis, an expression, a closing
 parenthesis, a statement, an else keyword, and another statement; optionally, the else keyword and the
 last statement may be missing */
-/* IfStatement = IF LPAREN Expression RPAREN Statement ELSE Statement IfTail ; */
 IfStatement = IF LPAREN Expression RPAREN Statement IfTail ;
 
 IfTail = ELSE Statement
@@ -170,6 +175,7 @@ LHSExpression = ID
 
 /* An array access is a left hand side
 expression, followed by an opening bracket, followed by an expression, followed by a closing bracket */
+/* Based on tutorial */
 ArrayAccess = ID LBRACKET Expression RBRACKET
             | ArrayAccess LBRACKET Expression RBRACKET ; /* Nested arrays */
 
